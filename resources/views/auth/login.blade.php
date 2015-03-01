@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">
-					@include('templates.partials.login');
+					@include('templates.partials.login')
 				</div>
 			</div>
 		</div>
