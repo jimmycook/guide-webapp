@@ -18,11 +18,9 @@ class CreatePostsTable extends Migration {
 			$table->integer('user_id');
 			$table->string('title');
 			$table->string('slug')->unique();
-			$table->boolean('draft');
 			$table->text('body');
-			$table->boolean('image');
-			$table->boolean('featured');
 			$table->timestamps();
+			$table->datetime('published_at');
 		});
 	}
 

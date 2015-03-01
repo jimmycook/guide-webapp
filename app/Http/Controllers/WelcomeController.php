@@ -30,12 +30,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		dd($_ENV);
-	}
-
-	public function contact()
-	{
-		return 'contact';
+		return view('welcome');
 	}
 
 }
