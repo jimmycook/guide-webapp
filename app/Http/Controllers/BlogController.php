@@ -2,10 +2,16 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Post;
 
 use Illuminate\Http\Request;
 
 class BlogController extends Controller {
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +20,8 @@ class BlogController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$posts = Post::all();
+		return view('blog.index', compact('posts'));
 	}
 
 	/**
@@ -24,7 +31,7 @@ class BlogController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('blog.create');
 	}
 
 	/**
@@ -45,7 +52,7 @@ class BlogController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return 'test';
 	}
 
 	/**
