@@ -10,8 +10,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Guide @yield('title')</title>
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="{{url('/favicon.ico') }}" type="image/x-icon">
+	<link rel="icon" href="{{ url('/favicon.ico') }}" type="image/x-icon">
 	<link rel="stylesheet" href="/css/style.css">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
