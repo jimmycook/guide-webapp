@@ -11,7 +11,9 @@
 			<div class="panel-body">
 			@if(count($food))
 				<div class="row">
-					
+					<div class="col-sm-4">
+						<img src="{{ $food->image }}" alt="Food image" class="img-responsive">
+					</div>
 					<div class="col-sm-8">
 						<h4>{{ $food->name }}</h4>
 						<p><strong>Carbohydrate:</strong> {{ $food->carb}}g per medium item</p>
@@ -19,9 +21,7 @@
 						<p>{{ $food->description }}</p>
 
 					</div>
-					<div class="col-sm-4">
-						<img src="{{ $food->image }}" alt="Food image" class="img-responsive">
-					</div>
+					
 				</div>
 
 				<div class="embed-responsive embed-responsive-16by9">
