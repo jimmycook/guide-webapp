@@ -3,7 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
-
+use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller {
@@ -20,7 +21,7 @@ class BlogController extends Controller {
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+		$posts = Post::orderBy('published_at', 'DSC')->get();
 		return view('blog.index', compact('posts'));
 	}
 
@@ -39,9 +40,20 @@ class BlogController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		
+		$this->validate($request, ['title' => 'required', 'body' => 'required']);
+		
+		$posts = Post::all();
+
+		$post = new Post($request->all());
+		$post->published_at = Carbon::now();
+		$post->user_id = Auth::user()->id;
+		$post->slug = str_replace(' ', '-', $post->title);
+		$post->save();
+
+		return 'success';
 	}
 
 	/**

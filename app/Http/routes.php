@@ -16,6 +16,10 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('blog', 'BlogController@index');
+Route::post('blog', 'BlogController@store');
+
+Route::get('blog/show/{slug}', 'BlogController@show');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

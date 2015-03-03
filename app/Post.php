@@ -11,6 +11,13 @@ class Post extends Model {
 		'body',
 		'published_at'];
 
+	protected $dates = ['published_at'];
+
+	public function scopePublished($query)
+	{
+		$query->where('published_at', '<=', Carbon::now());
+	}
+
 	/**
 	 * A post is created by a user
 	 * @return \HasOne

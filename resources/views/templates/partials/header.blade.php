@@ -7,7 +7,7 @@
 	<meta name="author" content="Jimmy Cook">
 	<meta name="description" content="Guide">
 	<meta name="keywords" content="food app">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
 
 	<title>Guide @yield('title')</title>
 	<link rel="shortcut icon" href="{{url('/favicon.ico') }}" type="image/x-icon">
