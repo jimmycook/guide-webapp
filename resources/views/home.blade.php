@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<div class="jumbotron">
-		  <h1>Welcome to Guide</h1>
+		  <h1><span style="font-family: 'Satisfy'">Guide</span></h1>
 		  <p>A web app for food and more</p>
 	</div>
 
