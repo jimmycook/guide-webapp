@@ -19,8 +19,7 @@
 			@else
 				<p>There are no food items in the system</p>
 			@endif
-			
-				<button type="button" data-toggle="modal" data-target="#create" class="btn btn-block btn-default">Create a post</button>
+			<a href="{{url('/')}}" class="text-center">Home</a>			
 			</div>
 		</div>
 	</div>
