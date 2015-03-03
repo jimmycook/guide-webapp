@@ -15,7 +15,7 @@
 					<div class="col-sm-8">
 						<h4>{{ $food->name }}</h4>
 						<p><strong>Carbohydrate:</strong> {{ $food->carb}}g per medium item</p>
-						<p><strong>Calories:</strong> {{ $food->carb}} calories</p>
+						<p><strong>Calories:</strong> {{ $food->cal}} calories</p>
 						<p>{{ $food->description }}</p>
 
 					</div>
