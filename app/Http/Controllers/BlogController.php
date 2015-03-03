@@ -6,6 +6,8 @@ use App\Post;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class BlogController extends Controller {
 
@@ -42,52 +44,56 @@ class BlogController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		
-		$this->validate($request, ['title' => 'required', 'body' => 'required']);
-		
+
+		$v = Validator::make($request->all(), [
+		        'title' => 'required|unique|max:255',
+		        'body' => 'required',
+		    ]);
+
+	    if ($v->fails())
+	    {	
+	    	flash()->error('Post creation failed');
+	        return redirect()->back();
+	    }
+				
 		$posts = Post::all();
 
 		$post = new Post($request->all());
 		$post->published_at = Carbon::now();
 		$post->user_id = Auth::user()->id;
 		$post->slug = str_replace(' ', '-', $post->title);
+
+		/**
+		 * Deal with duplicates
+		 */
+		foreach($posts as $temp)
+		{
+			if($post->slug == $temp->slug)
+			{
+				$post->slug = $post->slug . '-';
+			}
+		}
+		$post->save();
+		$post->slug = $post->slug . '-' . $post->id;
 		$post->save();
 
-		return 'success';
+		flash()->success('Post created successfully');
+		return redirect(url('/blog'));
 	}
 
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  string  $slog
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
-		return 'test';
+		$post = Post::where('slug', $slug)->firstOrFail();
+
+		return view('blog.show', compact('post'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
 
 	/**
 	 * Remove the specified resource from storage.

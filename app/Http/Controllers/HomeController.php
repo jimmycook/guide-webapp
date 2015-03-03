@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Food;
+use App\Post;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +33,14 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$posts = Post::orderBy('created_at', 'DSC')->limit(3)->get();
+		$food = Food::orderBy(\DB::raw('RAND()'))->first();
+		return view('home', compact('posts', 'food'));
+	}
+
+	public function location()
+	{
+		return view('location');
 	}
 
 }

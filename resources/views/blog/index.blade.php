@@ -6,6 +6,8 @@
 
 @section('content')
 	<div class="container">	
+		@include('flash::message')
+		
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4>Blog</h4>

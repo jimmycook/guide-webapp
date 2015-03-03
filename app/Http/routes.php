@@ -18,9 +18,12 @@ Route::get('home', 'HomeController@index');
 Route::get('blog', 'BlogController@index');
 Route::post('blog', 'BlogController@store');
 
-Route::get('blog/show/{slug}', 'BlogController@show');
+Route::get('blog/{slug}', 'BlogController@show');
 
+Route::get('food', 'FoodController@index');
+Route::get('food/{slug}', 'FoodController@show');
 
+Route::get('/location', 'HomeController@location');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
