@@ -15,7 +15,6 @@
 				<li><a href="{{ url('/') }}">Home</a></li>
 				<li><a href="{{ url('/blog') }}">Blog</a></li>
 				<li><a href="{{ url('/food') }}">Food</a></li>
-				<li><a href="{{ url('/location') }}">Location</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
