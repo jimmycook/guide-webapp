@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<div class="jumbotron">
-		  <h1><span style="font-family: 'Satisfy'">Guide</span></h1>
+	  <h1><span style="font-family: 'Satisfy'">Guide</span></h1>
 		  <p>A web app for food and more</p>
 	</div>
 
@@ -13,17 +13,26 @@
 		</div>
 		<div class="panel-body">
 		@if(count($food))
-			<img src="{{ $food->image }}" alt="Food image" class="img-responsive">
-			<h4>{{ $food->name }}</h4>
-	
-			<p>{{ $food->description }}</p>
+			<div class="row">
+				<div class="col-sm-3">
+					<img src="{{ $food->image }}" alt="Food image" class="img-responsive">
 
+				</div>
+				<div class="col-sm-9">
+					<h4>{{ $food->name }}</h4>
+			
+					<p>{{ $food->description }}</p>
+
+				</div>
+			</div>
 			<hr />
+
+			<p class="text-center"><a href="/food/{{ $food->slug }}">View in full</a></p>
+
 		@else
 			<p>There are no food items in the system</p>
 		@endif
 		
-		<p class="text-center"><a href="/food/{{ $food->slug }}">View in full</a></p>
 		</div>
 	</div>
 	<div class="panel panel-default">
