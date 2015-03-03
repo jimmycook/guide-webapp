@@ -19,7 +19,7 @@
 			@else
 				<p>There are no food items in the system</p>
 			@endif
-			<a href="{{url('/')}}" class="text-center">Home</a>			
+			<p class="text-center"><a href="{{url('/')}}">Home</a></p>
 			</div>
 		</div>
 	</div>
