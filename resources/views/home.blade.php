@@ -14,14 +14,14 @@
 		<div class="panel-body">
 		@if(count($food))
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<img src="{{ $food->image }}" alt="Food image" class="img-responsive">
 
 				</div>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<h4>{{ $food->name }}</h4>
 			
-					<p>{{ $food->description }}</p>
+					<p>{{ str_limit($food->description, 300, '...') }}</p>
 
 				</div>
 			</div>
