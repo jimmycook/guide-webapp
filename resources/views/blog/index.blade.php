@@ -1,7 +1,3 @@
-<?php 
-	// dd($posts);
- ?>
-
 @extends('app')
 
 @section('content')
@@ -43,8 +39,12 @@
 	        	<div class="form-group">
 	        		
 	        		{!! Form::label('title', 'Title:') !!}	
-	        		{!! Form::text('title', null, ['class' => 'form-control']) !!}
-	        
+	        		{!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+	        		<script type="text/javascript">
+	        		$("#title").click(function(){
+	        			$( this ).slideUp();
+	        		});	
+	        		</script>
 	        	</div>
 		        	
 		        	<div class="form-group">

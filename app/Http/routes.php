@@ -14,6 +14,7 @@
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
+Route::post('home', 'BlogController@store');
 
 Route::get('blog', 'BlogController@index');
 Route::post('blog', 'BlogController@store');
