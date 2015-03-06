@@ -22,7 +22,6 @@
 					<h4>{{ $food->name }}</h4>
 			
 					<p>{{ str_limit($food->description, 300, '...') }}</p>
-					<p>Select a new car from the list.</p>
 
 					<select id="mySelect" onchange="myFunction()">
 						<option value="" disabled selected>Select your option</option>
