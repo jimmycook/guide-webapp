@@ -52,7 +52,7 @@
 		        </div>
 		      	<div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        {!! Form::submit('Create', ['class'=>'btn btn-primary', 'disabled', 'id' => 'create']) !!}
+			        {!! Form::submit('Create', ['class'=>'btn btn-primary', 'id' => 'create']) !!}
 		      	</div>
 		    </div>
 		</div>
