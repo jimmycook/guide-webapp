@@ -15,6 +15,7 @@
 				<li><a href="{{ url('/') }}">Home</a></li>
 				<li><a href="{{ url('/blog') }}">Blog</a></li>
 				<li><a href="{{ url('/food') }}">Food</a></li>
+				<li><a id="" data-toggle="modal" data-target="#modal">Help</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -33,3 +34,23 @@
 		</div>
 	</div>
 </nav>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Help</h4>
+      </div>
+      <div class="modal-body">
+      	<p>To use this app, use touch.</p>
+		<p>Tap on buttons and links to use them, as with all mobile applications.</p> 
+		Any further assistance needed email jimmy.cook@hotmail.co.uk</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

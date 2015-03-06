@@ -30,23 +30,19 @@
 
 		<div class="modal-dialog">
 		    <div class="modal-content">
-			     <div class="modal-header">
+			    <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title" id="createModal">Create a post</h4>
-			      </div>
+			    </div>
 		      	<div class="modal-body">
 		        	
-	        	<div class="form-group">
-	        		
-	        		{!! Form::label('title', 'Title:') !!}	
-	        		{!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
-	        		<script type="text/javascript">
-	        		$("#title").click(function(){
-	        			$( this ).slideUp();
-	        		});	
-	        		</script>
-	        	</div>
+		        	<div class="form-group">
+		        		
+		        		{!! Form::label('title', 'Title:') !!}	
+		        		{!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'onkeydown' => 'keydownTest()']) !!}
 		        	
+		        	</div>
+			        <p id="keycount">255 characters remaining</p>	
 		        	<div class="form-group">
 		        		
 		        		{!! Form::label('body', 'Body:') !!}	
@@ -56,11 +52,22 @@
 		        </div>
 		      	<div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        {!! Form::submit('Create', ['class'=>'btn btn-primary']) !!}
+			        {!! Form::submit('Create', ['class'=>'btn btn-primary', 'disabled', 'id' => 'create']) !!}
 		      	</div>
 		    </div>
 		</div>
 	  {!! Form::close() !!}	      
+	<script type="text/javascript">
 
+	function keydownTest(){
+		var p = document.getElementById('keycount');
+		var t = document.getElementById('title');
+		var counter = 255 - (t.value.length + 1);
+		var output = counter.toString();
+		output = output + " characters remaining";
+		p.innerHTML = output; 
+	}
+	</script>
 	</div>
+	
 @stop
